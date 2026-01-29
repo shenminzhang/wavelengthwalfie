@@ -5,7 +5,6 @@ function clamp(n, min, max) {
 }
 
 function valueToAngle(v) {
-  // map 0..100 -> -90..+90 degrees
   return 180 + (v / 100) * 180;
 }
 
@@ -28,7 +27,6 @@ export default function Wheel({ guess, target, leftLabel, rightLabel, onChange, 
   return (
     <div className="wheelWrap">
       <svg viewBox={`0 0 ${w} ${h}`} width="100%" height="260">
-        {/* arc */}
         <path
           d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
           fill="none"
@@ -37,16 +35,13 @@ export default function Wheel({ guess, target, leftLabel, rightLabel, onChange, 
           opacity="0.35"
         />
 
-        {/* left/right labels */}
         <text x={cx - r} y={cy + 28} textAnchor="middle" fontSize="16" opacity="0.8">{leftLabel}</text>
         <text x={cx + r} y={cy + 28} textAnchor="middle" fontSize="16" opacity="0.8">{rightLabel}</text>
 
-        {/* guess needle */}
         <line x1={cx} y1={cy} x2={guessPt.x} y2={guessPt.y} fill="red" stroke="red" strokeWidth="4" />
         <circle cx={cx} cy={cy} r="6" fill="red" />
         <circle cx={guessPt.x} cy={guessPt.y} r="6" fill="red" />
 
-        {/* target marker (only after reveal) */}
         {targetPt && (
           <>
             <circle cx={targetPt.x} cy={targetPt.y} r="7" fill="green" stroke="green" strokeWidth="3" />
@@ -69,3 +64,4 @@ export default function Wheel({ guess, target, leftLabel, rightLabel, onChange, 
     </div>
   );
 }
+
