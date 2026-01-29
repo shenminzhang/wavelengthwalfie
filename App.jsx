@@ -7,9 +7,9 @@ const API_BASE = "http://localhost:5000/api";
 export default function App() {
   const [theme, setTheme] = useState("");
   const [loading, setLoading] = useState(false);
-  const [round, setRound] = useState(null); // { roundId, anchors..., clue }
+  const [round, setRound] = useState(null); 
   const [guess, setGuess] = useState(50);
-  const [reveal, setReveal] = useState(null); // { target, distance, score }
+  const [reveal, setReveal] = useState(null); 
   const [error, setError] = useState("");
 
   const step = useMemo(() => {
